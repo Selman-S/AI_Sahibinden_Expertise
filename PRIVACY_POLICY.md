@@ -88,7 +88,7 @@ Bu gizlilik politikası gerektiğinde güncellenebilir. Önemli değişiklikler 
 Herhangi bir sorunuz, öneriniz veya veri silme talebiniz varsa, aşağıdaki adres üzerinden bizimle iletişime geçebilirsiniz:
 
 **E-posta:** [selmansahbudak1@gmail.com](selmansahbudak1@gmail.com)  
-**GitHub:** [Akıllı Eksper](https://github.com/Selman-S/AI_Arac_degerlendirme_Chrome_extension)
+**GitHub:** [Akıllı Eksper](https://github.com/Selman-S/AI_Sahibinden_Expertise)
 
 ---
 
