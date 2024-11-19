@@ -3,7 +3,7 @@
   "name": "Akıllı Eksper",
   "description": "Araç detay sayfasında chatbot ile interaktif araç değerlendirme ve fiyat geçmişi görüntüleme.",
   "version": "2.0",
-  "permissions": ["activeTab", "storage"],
+ "permissions": [],
   "host_permissions": ["https://*.sahibinden.com/*"],
   "content_scripts": [
     {
