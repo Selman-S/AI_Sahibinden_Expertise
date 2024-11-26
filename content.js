@@ -1,13 +1,8 @@
 (() => {
   // Constants
   let BACKEND_BASE_URL;
-  const ortam = "prod";
-
-  if (ortam == "dev") {
-    BACKEND_BASE_URL = "http://localhost:5000/api";
-  } else if (ortam == "prod") {
-    BACKEND_BASE_URL = "https://sahibinden-backend-production.up.railway.app/api";
-  }
+  BACKEND_BASE_URL = "https://sahibinden-backend-production.up.railway.app/api";
+ 
   const EVALUATE_BUTTON_ID = 'evaluateCarButton';
   const EVALUATION_TABLE_ID = 'evaluationResultTable';
   const STYLE_ID = 'customStyles';
