@@ -1,7 +1,13 @@
 (() => {
   // Constants
   let BACKEND_BASE_URL;
-  BACKEND_BASE_URL = "https://sahibinden-backend-production.up.railway.app/api";
+  const ortam = "prod";
+ 
+  if (ortam == "dev") {
+    BACKEND_BASE_URL = "http://localhost:5000/api";
+  } else if (ortam == "prod") {
+    BACKEND_BASE_URL = "https://sahibinden-backend-production.up.railway.app/api";
+  }
  
   const EVALUATE_BUTTON_ID = 'evaluateCarButton';
   const EVALUATION_TABLE_ID = 'evaluationResultTable';
@@ -63,7 +69,7 @@
 
   // Check if the current page is a listing page
   function isListingPage() {
-    return document.querySelector("#searchResultsTable");
+    return document.querySelector("#searchResultsTable")&&(window.location.pathname.startsWith('/otomobil')||window.location.pathname.startsWith('/arazi-suv'))&&document.querySelector("#searchResultsTable thead tr").innerText.includes('Marka')&&document.querySelector("#searchResultsTable thead tr").innerText.includes('Seri')&&document.querySelector("#searchResultsTable thead tr").innerText.includes('Model');
   }
 
   // Remove injected elements when navigating away
