@@ -74,6 +74,11 @@ function isCarDetailPage() {
   );
 }
 
+  // Check if the current page is a listing page
+  function isListingPage() {
+    return document.querySelector("#searchResultsTable") && (window.location.pathname.startsWith('/otomobil') || window.location.pathname.startsWith('/arazi-suv')) && document.querySelector("#searchResultsTable thead tr").innerText.includes('Marka') && document.querySelector("#searchResultsTable thead tr").innerText.includes('Seri') && document.querySelector("#searchResultsTable thead tr").innerText.includes('Model');
+  }
+
 // Remove injected elements when navigating away
 function removeInjectedElements() {
   removeElementById(EVALUATE_BUTTON_ID);
@@ -256,6 +261,11 @@ function injectStyles() {
   styleElement.textContent = styles;
   document.head.appendChild(styleElement);
 }
+
+
+
+// ----------------Detail page-----------------
+
 
 // Check AI status from the backend
 async function checkAIStatus() {
@@ -879,4 +889,6 @@ function parseTechDetails(html) {
   });
   return techDetails;
 }
+
+// ----------------Detail page-----------------
 })();
