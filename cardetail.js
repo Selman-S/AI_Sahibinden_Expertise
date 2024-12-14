@@ -1,5 +1,7 @@
 (() => {
 
+setTimeout(() => {
+  
 
 // Constants
 let BACKEND_BASE_URL;
@@ -891,4 +893,5 @@ function parseTechDetails(html) {
 }
 
 // ----------------Detail page-----------------
+}, 1000);
 })();

@@ -1,7 +1,10 @@
 (() => {
+  setTimeout(() => {
+    
+
   // Constants
   let BACKEND_BASE_URL;
-  const ortam = "dev";
+  const ortam = "prod";
 
   if (ortam == "dev") {
     BACKEND_BASE_URL = "http://localhost:5000/api";
@@ -194,7 +197,6 @@
 
       const car = {
         adId: parseInt(adId),
-        imageUrl: dataCells[index.imageUrl]?.querySelector("img")?.src || "",
         brand:
           index.brand !== null
             ? dataCells[index.brand]?.innerText.trim()
@@ -213,25 +215,13 @@
             : document
                 .querySelector("#search_cats ul .cl4")
                 ?.innerText.trim() || "",
-        title: row.querySelector(".classifiedTitle")?.innerText.trim() || "",
         year: parseInt(dataCells[index.year]?.innerText.trim()) || null,
         km: parseInt(dataCells[index.km]?.innerText.replace(/\D/g, "")) || null,
         price:
           parseInt(dataCells[index.price]?.innerText.replace(/\D/g, "")) ||
           null,
-        adDate:
-          dataCells[index.adDate]?.innerText.trim().replace("\n", " ") || "",
-        adUrl:
-          "https://www.sahibinden.com" +
-            row.querySelector(".classifiedTitle")?.getAttribute("href") || "",
       };
 
-      // Extract location data
-      const { city, ilce, semt, mahalle } = extractLocationData(
-        dataCells,
-        index.location
-      );
-      Object.assign(car, { city, ilce, semt, mahalle });
 
       if (!car.brand || !car.series || !car.model) {
         return null;
@@ -300,45 +290,6 @@
     return index;
   }
 
-  // Extract location data from a table row
-  function extractLocationData(dataCells, locationIndex) {
-    let city = "";
-    let ilce = "";
-    let semt = "";
-    let mahalle = "";
-
-    const locationHeaderTitle = document
-      .querySelector(".searchResultsLocationHeader a")
-      ?.getAttribute("title");
-    const locationCell = dataCells[locationIndex];
-    const locationTexts = locationCell?.innerText.trim().split("\n") || [];
-
-    switch (locationHeaderTitle) {
-      case "İl / İlçe":
-        city = locationTexts[0] || "";
-        ilce = locationTexts[1] || "";
-        break;
-      case "İlçe / Semt":
-        city =
-          document.querySelector('[data-address="city"] a')?.innerText.trim() ||
-          "";
-        ilce = locationTexts[0] || "";
-        semt = locationTexts[1] || "";
-        break;
-      case "Semt / Mahalle":
-        city =
-          document.querySelector('[data-address="city"] a')?.innerText.trim() ||
-          "";
-        ilce =
-          document.querySelector('[data-address="town"] a')?.innerText.trim() ||
-          "";
-        semt = locationTexts[0] || "";
-        mahalle = locationTexts[1] || "";
-        break;
-    }
-
-    return { city, ilce, semt, mahalle };
-  }
 
   // Save cars data to the backend
   async function saveCarsData(cars) {
@@ -494,4 +445,5 @@
     tooltip.style.left = event.pageX + 10 + "px";
     tooltip.style.top = event.pageY + 10 + "px";
   }
+}, 1000);
 })();
